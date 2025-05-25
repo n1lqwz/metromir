@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>МетроМир — Связаться с нами</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="interesting.html">Интересное</a>
+      <a href="rating.html">Рейтинги</a>
+      <a href="feedback.html">Связаться с нами</a>
+    </nav>
+    <div class="fade-image">
+      <h1>Связаться с нами</h1>
+    </div>
+  </header>
+    <div class="hero-image">
+  <img src="img/image4.png" alt="Metro Header" />
+</div>
+  <main class="content">
+    <form class="form" onsubmit="handleSubmit(event)">
+      <label for="type">Тип обращения:</label>
+      <select id="type" name="type" required>
+        <option value="предложения">Предложения</option>
+        <option value="идеи">Идеи</option>
+        <option value="жалобы">Жалобы</option>
+      </select>
+
+      <label for="firstname">Имя*:</label>
+      <input type="text" id="firstname" name="firstname" required />
+
+      <label for="lastname">Фамилия:</label>
+      <input type="text" id="lastname" name="lastname" />
+
+      <label for="email">Email*:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Сообщение:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Отправить</button>
+    </form>
+    <p id="response" class="response-message"></p>
+  </main>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const type = form.type.value;
+      const response = document.getElementById('response');
+      if (type === 'жалобы') {
+        response.textContent = 'Спасибо за жалобу, мы обязательно рассмотрим её.';
+      } else {
+        response.textContent = 'Спасибо за ваше сообщение!';
+      }
+      form.reset();
+    }
+  </script>
+</body>
+</html>
